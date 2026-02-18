@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIYAD AUTO PRESTIGE | Showroom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700;900&family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- STYLE DE BASE --- */
+        :root { 
+            --red: #C8102E; --gold: #B4975A; --blue: #002349; --light: #f9f9f9; --dark: #070707;
+            --glass: rgba(255, 255, 255, 0.95); 
+        }
+        body { font-family: 'Outfit', sans-serif; margin: 0; background: var(--light); color: var(--blue); }
+
+        /* --- NAVIGATION --- */
+        nav { 
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%); 
+            width: 90%; max-width: 1200px; background: var(--glass); backdrop-filter: blur(10px); 
+            padding: 15px 30px; border-radius: 50px; display: flex; justify-content: space-between; 
+            align-items: center; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .logo { font-family: 'Bodoni Moda'; font-weight: 900; font-size: 1.2rem; color: var(--blue); text-decoration: none; }
+        .logo span { color: var(--red); font-size: 0.8em; }
+
+        /* --- HERO (Image de fond: hero.jpg.jpeg) --- */
+        .hero { 
+            height: 100vh; 
+            /* ATTENTION : Le nom exact du fichier est ici */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('hero.jpg.jpeg') center/cover no-repeat;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            text-align: center; color: white;
+        }
+        .hero h1 { font-family: 'Bodoni Moda'; font-size: 4rem; margin: 0; }
+        
+        /* --- PARTENARIATS --- */
+        .partners { padding: 30px; background: #fff; text-align: center; display: flex; justify-content: center; gap: 40px; border-bottom: 1px solid #ddd; }
+        .partner-logo { font-weight: bold; color: #aaa; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- SECTION QUI SOMMES NOUS --- */
+        .about-section { padding: 80px 10%; display: flex; align-items: center; gap: 50px; background: white; }
+        .about-text { flex: 1; }
+        .about-img { flex: 1; }
+        /* ATTENTION : Le nom exact du fichier vieux chauffeur est ici */
+        .about-img img { width: 100%; border-radius: 20px; box-shadow: 15px 15px 0 var(--gold); }
+
+        /* --- GRILLE VOITURES --- */
+        .fleet { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-info { padding: 20px; }
+        .card-info h3 { margin: 0 0 10px 0; font-family: 'Bodoni Moda'; }
+        .price { color: var(--red); font-weight: bold; font-size: 1.2rem; }
+
+        /* --- FOOTER --- */
+        footer { background: #111; color: white; padding: 50px; text-align: center; }
+        .btn-wa { background: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
+
+        /* --- BOUTON MUSIQUE (OVERLAY) --- */
+        #music-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div id="music-overlay" onclick="startSite()">
+    <i class="fas fa-play-circle" style="font-size: 5rem; color: var(--gold); margin-bottom: 20px;"></i>
+    <h1 style="font-family: 'Bodoni Moda';">ENTRER DANS LE SHOWROOM</h1>
+    <p>Cliquez n'importe où pour activer l'expérience</p>
+</div>
+
+<div id="player" style="position: absolute; top: -9999px;"></div>
+
+<nav>
+    <a href="#" class="logo">RIYAD AUTO <span>PRESTIGE</span></a>
+    <div>
+        <a href="#about" style="margin-right: 20px; text-decoration: none; color: var(--blue);">L'AGENCE</a>
+        <a href="tel:0628875855" style="color: var(--red); font-weight: bold;">06 28 87 58 55</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>AUDI SHOWROOM</h1>
+    <p>L'EXCELLENCE À RABAT</p>
+</section>
+
+<div class="partners">
+    <span class="partner-logo"><i class="fab fa-audible"></i> AUDI MAROC</span>
+    <span class="partner-logo"><i class="fas fa-hotel"></i> SOFITEL</span>
+    <span class="partner-logo"><i class="fas fa-plane"></i> VIP AIRPORT</span>
+</div>
+
+<section id="about" class="about-section">
+    <div class="about-text">
+        <h2 style="font-family: 'Bodoni Moda'; font-size: 3rem;">Signature de Prestige</h2>
+        <p>Bienvenue chez Riyad Auto Prestige. Nous offrons une expérience unique de location de voitures de luxe et de collection au cœur de Hay Riad.</p>
+    </div>
+    <div class="about-img">
+        <img src="vieux-chauffeur.jpg.png" alt="Chauffeur Prestige">
+    </div>
+</section>
+
+<section class="fleet">
+    <h2 style="text-align: center; font-family: 'Bodoni Moda'; font-size: 2.5rem;">LUXE MODERNE</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="camaro.jpg.jpeg" alt="Camaro">
+            <div class="card-info">
+                <h3>Chevrolet Camaro SS</h3>
+                <div class="price">1300 DH / Jour</div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="mustang.jpg.jpeg" alt="Mustang">
+            <div class="card-info">
+                <h3>Ford Mustang GT</h3>
+                <div class="price">1200 DH / Jour</div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="bmw.jpg.jpeg" alt="BMW">
+            <div class="card-info">
+                <h3>BMW Série Luxe</h3>
+                <div class="price">900 DH / Jour</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="fleet" style="background: #111; color: white; padding: 80px 5%; width: 90%; max-width: 100%;">
+    <h2 style="text-align: center; font-family: 'Bodoni Moda'; font-size: 2.5rem; color: var(--gold);">COLLECTION HÉRITAGE</h2>
+    <div class="grid">
+        <div class="card" style="background: #222; color: white;">
+            <img src="mercedes.jpg.jpg" alt="Mercedes">
+            <div class="card-info">
+                <h3>Mercedes S-Class W140</h3>
+                <div class="price" style="color: var(--gold);">1500 DH / Jour</div>
+            </div>
+        </div>
+        <div class="card" style="background: #222; color: white;">
+            <img src="wedding-car.jpg.jpg" alt="Wedding">
+            <div class="card-info">
+                <h3>Spécial Mariage</h3>
+                <div class="price" style="color: var(--gold);">Sur Devis</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>Riyad Auto Prestige - Hay Riad, Rabat</p>
+    <a href="https://wa.me/212628875855" class="btn-wa"><i class="fab fa-whatsapp"></i> RÉSERVER SUR WHATSAPP</a>
+    <br><br>
+    <a href="mailto:riyadautoprestige@gmail.com" style="color: white;">riyadautoprestige@gmail.com</a>
+</footer>
+
+<script>
+    // SCRIPT POUR LA MUSIQUE
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '0', width: '0', videoId: 'nv_2rz5BFDA', // Musique Jazz
+            playerVars: { 'autoplay': 1, 'loop': 1, 'playlist': 'nv_2rz5BFDA' }
+        });
+    }
+
+    function startSite() {
+        document.getElementById('music-overlay').style.display = 'none';
+        if(player && player.playVideo) {
+            player.playVideo();
+        }
+    }
+</script>
+
+</body>
+</html>
